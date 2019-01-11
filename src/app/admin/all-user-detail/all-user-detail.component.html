@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col-md-6" *ngFor="let user of users" >
+       <app-user-detail [user]="user" (deleteClicked)="onDeleteClicked($event)" (editClicked)="onEditClicked($event)"></app-user-detail>
+  </div>
+
+</div>

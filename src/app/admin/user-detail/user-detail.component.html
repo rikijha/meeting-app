@@ -1,0 +1,12 @@
+<div class="card text-center mt-3">
+  <div class="card-header">
+    {{user.name}}<a><i class="material-icons ml-5 btn" (click)="deleteUser()">delete</i></a><i class="material-icons btn" (click)="editUser()">edit</i>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{user.role}}</h5>
+    <p class="card-text">Email:{{user.email}}</p>
+  </div>
+  <div class="card-footer text-muted" [ngClass]="{'alert-success':user.credential != 'null','alert-danger':user.credential === null}">
+    status<span *ngIf="user.credential === null"> : Password not set</span>
+  </div>
+</div>

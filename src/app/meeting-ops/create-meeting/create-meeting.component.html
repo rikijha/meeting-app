@@ -1,0 +1,41 @@
+<form role="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+<div class="form-group">
+
+  <ul class="list-group">
+    <li class="list-group-item text-danger" *ngIf="title.errors?.required && title.touched">
+         Title is required
+    </li>
+    <li class="list-group-item text-danger" *ngIf="description.errors?.required && description.touched">
+         Description is required
+    </li>
+  </ul>
+
+
+  <label for="title">Title</label>
+  <ckeditor [editor]="Editor" #title="ngModel" ngModel name="title"
+ [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic','undo','redo']} " required></ckeditor>
+
+<br>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+           <label class="input-group-text" for="role">venue</label>
+         </div>
+
+  <select name="venue"  #venue="ngModel" ngModel class="custom-select form-control ">
+    <option selected>Choose...</option>
+    <option value="conference room 1">conference room 1</option>
+    <option value="conference room 2">conference room 2</option>
+    <option value="conference room 3">conference room 3</option>
+  </select>
+
+</div>
+
+<label for="title">Description</label>
+<ckeditor class="des" [editor]="Editor" #description="ngModel" ngModel name="description"
+ [config]="ckeConfig" required></ckeditor>
+
+
+</div>
+
+<button type="submit" class="btn btn-success" [disabled]="myForm.invalid">Create</button>
+</form>

@@ -1,0 +1,35 @@
+<form role="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+<div class="form-group">
+
+
+
+
+  <label for="title">Title</label>
+  <ckeditor [editor]="Editor" [(ngModel)]="title" name="title"
+   [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic','undo','redo']} " required></ckeditor>
+
+<br>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+           <label class="input-group-text" for="role">venue</label>
+         </div>
+
+  <select name="venue" [(ngModel)]="venue" class="custom-select form-control ">
+    <option selected>Choose...</option>
+    <option value="conference room 1">conference room 1</option>
+    <option value="conference room 2">conference room 2</option>
+    <option value="conference room 3">conference room 3</option>
+  </select>
+
+</div>
+
+<label for="title">Description</label>
+<ckeditor class="des" [editor]="Editor" [(ngModel)]="description" name="description"
+ [config]="ckeConfig" required></ckeditor>
+
+
+</div>
+
+<button type="submit" class="btn btn-success" [disabled]="myForm.invalid">Save</button>
+<button  class="btn btn-danger ml-1" (click)="cancel()">Cancel</button>
+</form>

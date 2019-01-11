@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form  novalidate #f="ngForm" >
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email"   [(ngModel)]="email" class="form-control" required>
+          <label for="name">Name</label>
+          <input type="text" name="name"  [(ngModel)]="name" class="form-control" required>
+
+
+ </div>
+<div class="form-group">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+           <label class="input-group-text" for="role">Role</label>
+         </div>
+              <select name="role"   [(ngModel)]="role" class="custom-select form-control ">
+                <option selected>Choose...</option>
+                <option value="Manager">Manager</option>
+                <option value="Asst. Manager">Asst. Manager</option>
+                <option value="Developer">Developer</option>
+              </select>
+          </div>
+
+<button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="saveChanges()">Save Changes</button>
+<button type="submit" class="btn btn-danger ml-1"  (click)="cancel()">Cancel</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

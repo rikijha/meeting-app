@@ -1,0 +1,56 @@
+<div class="card text-center border border-dark" *ngIf="meeting">
+  <div class="card-header">
+    <span [innerHTML]="meeting.title" style="float:left"></span>
+    <span style="float:right" *ngIf="meeting.user.id === user.id">
+      <i class="material-icons ml-5 btn justify-content-end" (click)="deleteMeeting(meeting.id)">delete</i><i class="material-icons btn" (click)="editMeeting(meeting)">edit</i></span>
+  </div>
+  <div class="card-body">
+  <table class="table  border border-secondary">
+    <tr>
+      <th scope="row">Venue</th>
+      <td [innerHTML]="meeting.venue"></td>
+    </tr>
+    <tr>
+      <th scope="row">Conducted By</th>
+      <td >{{meeting.user.name}} ({{meeting.user.role}})</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Created On</th>
+      <td >{{meeting.date | date}}</td>
+    </tr>
+
+<tr >
+  <th scope="row" >Attendees</th>
+  <td >
+    <select name="userId" [(ngModel)]="userId" *ngIf="meeting.user.id === user.id">
+   <option selected>Choose User</option>
+   <option value="{{user.id}}" *ngFor="let user of users">{{user.name}}({{user.role}})</option>
+ </select><span *ngIf="meeting.user.id === user.id"><i class="material-icons btn" (click)="addAttendee()">add_circle_outline</i></span>
+ <p *ngFor="let attendee of meeting.attendees">{{attendee.name}}({{attendee.role}})<span *ngIf="meeting.user.id === user.id"><i class="material-icons btn" (click)="deleteAttendee(attendee)">delete</i></span></p>
+  </td>
+
+</tr>
+
+
+
+
+    <tr>
+      <td colspan="2" [innerHTML]="meeting.description"></td>
+    </tr>
+    <tr>
+      <td class="table-info" colspan="2">
+        <h6>Task</h6>
+      </td>
+    </tr>
+    <tr *ngFor="let task of meeting.task;index as i">
+      <td colspan="2" >
+      <span class="font-weight-bold">{{i+1}}</span> . {{task.details}} <a><i class="material-icons ml-5 btn" (click)="deleteTask(meeting.id,task.id)" *ngIf="meeting.user.id === user.id">delete</i></a>
+      </td>
+    </tr>
+  </table>
+  </div>
+  <div class="card-footer text-muted border border-dark">
+     <a  class="btn btn-primary text-light" (click)="addTask(meeting)" *ngIf="meeting.user.id === user.id">+ Add Task</a>
+  </div>
+</div>

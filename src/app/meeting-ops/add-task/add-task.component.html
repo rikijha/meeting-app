@@ -1,0 +1,16 @@
+<form  (ngSubmit)="createTask(task)" #task="ngForm" novalidate>
+
+  <div class="form-group">
+    <label for="details">Enter details</label>
+    <textarea name="details" #details="ngModel" ngModel rows="6" cols="80" class="form-control" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-success mb-2" [disabled]="task.invalid">Create Task</button>
+</form>
+<hr>
+<div class="card" *ngFor="let task of tasks">
+
+  <div class="card-body" >
+    {{task.details}}
+    <button class="btn btn-success ml-2"(click)="addTask(task)">+</button>
+  </div>
+</div>

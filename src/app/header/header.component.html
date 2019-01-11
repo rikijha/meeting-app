@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <h1 class="navbar-brand text-light" href="#">Meeting App</h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active text-light" routerLink="/login" *ngIf="!isLoggedIn()">Login <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link text-light" routerLink="/register" *ngIf="!isLoggedIn()">Register</a>
+      </div>
+      <div class="navbar-nav justify-content-end ml-auto">
+      <a class="nav-item nav-link text-light " routerLink="/profile" *ngIf="isLoggedIn() && user" >{{user.name}}({{user.role}})</a>
+    </div>
+  </div>
+</nav>

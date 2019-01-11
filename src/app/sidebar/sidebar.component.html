@@ -1,0 +1,12 @@
+<div class="sidebar content-box" style="display: block;" *ngIf="isLoggedIn()">
+        <ul class="nav">
+            <!-- Main menu -->
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Dashboard</a></li>
+            <li *ngIf="role === 'admin'" routerLinkActive="active"><a routerLink="/admin/create-user"> Create New User</a></li>
+            <li *ngIf="role === 'admin'" routerLinkActive="active"><a routerLink="/admin/all-user">Show All User</a></li>
+            <li *ngIf="role === 'Manager'" routerLinkActive="active"><a routerLink="/manager/create-meeting">Create Meeting</a></li>
+            <li><a routerLink="/profile" routerLinkActive="active"> My Profile</a></li>
+            <li ><a (click)="logout()" class="btn">Logout</a></li>
+
+        </ul>
+     </div>

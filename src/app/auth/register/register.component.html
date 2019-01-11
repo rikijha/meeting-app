@@ -1,0 +1,67 @@
+<div class="container">
+<div class="row">
+<div class="col-lg-4">
+ <form (ngSubmit)="onEmailSubmit(f)" novalidate #f="ngForm" *ngIf="emailform">
+   <div class="form-group">
+
+     <ul class="list-group">
+       <li class="list-group-item text-danger" *ngIf="email.errors?.required && email.touched">
+            Email is required
+       </li>
+     </ul>
+
+
+     <label for="email">Email</label>
+     <input type="email" name="email" #email="ngModel"  ngModel class="form-control"  required>
+   </div>
+
+     <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+ </form>
+
+ <form (ngSubmit)="onCodeSubmit(f)" novalidate #f="ngForm"  *ngIf="codeform">
+   <div class="form-group">
+
+     <ul class="list-group">
+       <li class="list-group-item text-danger" *ngIf="code.errors?.required && code.touched">
+            Code is required
+       </li>
+     </ul>
+
+
+     <label for="email">Enter code here</label>
+     <input type="text" name="code" #code="ngModel"  ngModel class="form-control"  required>
+   </div>
+
+     <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+ </form>
+
+ <form #passwordsForm='ngForm' *ngIf="passwordform" (ngSubmit)="onPasswordSubmit(passwordsForm)">
+   <h3>Welcome <span>{{email}}</span></h3>
+		<div ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #passwordA="ngModel" name="passwordA"
+				 required id="passwordA" [(ngModel)]="password1">
+			</div>
+
+			<div class="form-group mt-1">
+				<label for="exampleInputPassword2">Confirm Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" #passwordB="ngModel" name="passwordB"
+				 required id="passwordB" [(ngModel)]="password2">
+			</div>
+
+		</div>
+		<div *ngIf="passwordB.invalid && (passwordA.dirty || passwordA.touched)" class="alert alert-danger">
+			Please confirm your password.
+		</div>
+		<div *ngIf="passwords.errors?.passwordCheck && (passwordB.dirty || passwordB.touched)" class="alert alert-danger">
+			Passwords do not match.
+		</div>
+
+    <button type="submit" class="btn btn-success" [disabled]="passwordsForm.invalid">Register Me</button>
+	</form>
+
+
+</div>
+</div>
+</div>

@@ -20,7 +20,18 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ckeditor/ckeditor5-angular": "^1.0.1",
+    "@ckeditor/ckeditor5-build-classic": "^11.2.0",
+    "@ngtools/webpack": "file:node_modules/@ngtools/webpack",
+    "@types/ckeditor": "^4.9.5",
+    "@types/lodash": "^4.14.119",
+    "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
+    "glyphicons": "^0.2.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "material-design-icons": "^3.0.1",
+    "popper.js": "^1.14.6",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
@@ -43,6 +54,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "~2.9.2",
+    "webpack-cleanup-plugin": "^0.5.1"
   }
 }

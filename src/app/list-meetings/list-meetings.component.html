@@ -1,0 +1,5 @@
+<input [(ngModel)]="searchText"  class="form-control mr-sm-2" type="search" placeholder="Search meeting" aria-label="Search" >
+<br>
+<ul class="list-group" *ngFor="let meeting of meetings | filter:searchText">
+  <li class="list-group-item" (click)="onClicked(meeting)" [innerHTML]="meeting.title"></li>
+</ul>
